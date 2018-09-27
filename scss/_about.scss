@@ -1,0 +1,10 @@
+.ab-co-top { border-bottom: 10px solid $defaultColor;
+	.bp-title { margin: 0; }
+}
+
+.co-co-list {
+	> li { padding: 25px 0; border-bottom: 1px solid $lineGray3;
+		&:first-child { padding-top: 0; }
+		&:last-child { padding-bottom: 0; border-bottom: none; }
+	}
+}

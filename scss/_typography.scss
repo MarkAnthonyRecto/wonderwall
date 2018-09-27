@@ -28,3 +28,9 @@ h6 { font-size: 0.67em; }
 	.fz-20 { font-size: 18px; }
 	.fz-24 { font-size: 22px; }
 }
+
+.bp-par { display: block; }
+
+.ab-co-par { @extend .bp-par;
+	h1, h2, h3, h4 { font-family: $fontC; }
+}

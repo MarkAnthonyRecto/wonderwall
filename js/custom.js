@@ -10,22 +10,40 @@ var bp = {
 
 		bp.loader('init');
 		bp.resize();
+		bp.inview();
 		bp.search();
 		bp.header();
 	},
 	ready: function() {
-		bp.resize();
 		// hide the preloader
-		bp.loader('close');
+		bp.loader('close', function() {
+			bp.resize();
+			bp.animation();
+		});
 	},
-	loader: function(state) {
+	loader: function(state, afterLoad) {
 		var _loader = {
 			content: '',
+			interval: '',
+			count: 0,
 			init: function() {
 				_loader.content = document.querySelector('.bp-preloader');
 			},
+			timer: function() {
+				_loader.interval = setInterval(_loader.update, 1000);
+			},
+			update: function() {
+				_loader.count++;
+				if(_loader.count == 1) {
+					clearInterval(_loader.interval);
+					$('.bp-preloader').fadeOut();
+					if(afterLoad) {
+						afterLoad();
+					}
+				}
+			},
 			close: function() {
-				$('.bp-preloader').fadeOut();
+				_loader.timer();
 			}
 		}
 
@@ -117,11 +135,116 @@ var bp = {
 			}
 		}
 		_header.init();
+	},
+	inview: function() {
+		(function(d){var p={},e,a,h=document,i=window,f=h.documentElement,j=d.expando;d.event.special.inview={add:function(a){p[a.guid+"-"+this[j]]={data:a,$element:d(this)}},remove:function(a){try{delete p[a.guid+"-"+this[j]]}catch(d){}}};d(i).bind("scroll resize",function(){e=a=null});!f.addEventListener&&f.attachEvent&&f.attachEvent("onfocusin",function(){a=null});setInterval(function(){var k=d(),j,n=0;d.each(p,function(a,b){var c=b.data.selector,d=b.$element;k=k.add(c?d.find(c):d)});if(j=k.length){var b;
+		if(!(b=e)){var g={height:i.innerHeight,width:i.innerWidth};if(!g.height&&((b=h.compatMode)||!d.support.boxModel))b="CSS1Compat"===b?f:h.body,g={height:b.clientHeight,width:b.clientWidth};b=g}e=b;for(a=a||{top:i.pageYOffset||f.scrollTop||h.body.scrollTop,left:i.pageXOffset||f.scrollLeft||h.body.scrollLeft};n<j;n++)if(d.contains(f,k[n])){b=d(k[n]);var l=b.height(),m=b.width(),c=b.offset(),g=b.data("inview");if(!a||!e)break;c.top+l>a.top&&c.top<a.top+e.height&&c.left+m>a.left&&c.left<a.left+e.width?
+		(m=a.left>c.left?"right":a.left+e.width<c.left+m?"left":"both",l=a.top>c.top?"bottom":a.top+e.height<c.top+l?"top":"both",c=m+"-"+l,(!g||g!==c)&&b.data("inview",c).trigger("inview",[!0,m,l])):g&&b.data("inview",!1).trigger("inview",[!1])}}},250)})(jQuery);
+	},
+	animation: function() {
+		if (Modernizr.touch) {
+			//$('.animate').removeClass('animate').removeAttr('anim-control').removeAttr('anim-delay').removeAttr('anim-name');
+		}
+
+		$('.animate').each(function() {
+			var thisAnim = $(this), // this content
+			animControl = $(this).attr('anim-control'), // for single or parent container
+			animName = $(this).attr('anim-name'), // customize animation
+			animDelay = parseFloat($(this).attr('anim-delay')), // delay value
+			delayIncrease = 0.2;
+			// if the container is parent
+			if(animControl == 'parent') {
+				// add delay to each child element
+				$(this).children().each(function(index) {
+					var element = $(this);
+					if(isNaN(animDelay)) {
+						animDelay = 0.5;
+					}
+					if(animDelay == 0) {
+	                    delayIncrease = 0;
+	                }
+					var delayNum = animDelay + (delayIncrease * index) + 's';
+					setTimeout(function() {
+						$(element).css('-webkit-animation-delay', delayNum)
+							.css('-moz-animation-delay', delayNum)
+							.css('-ms-animation-delay', delayNum)
+							.css('-o-animation-delay', delayNum)
+					}, 100);
+				});
+				$(this).css({opacity: 1});
+
+				if(animName == null) {
+					// if no customize animation then use default animation
+					$(this).children().each(function(index) {
+						$(this).addClass('anim-content');
+					});
+				} else {
+					// if have customize animation
+					$(this).children().each(function(index) {
+						$(this).addClass('animated');
+						$(this).on('inview',function(event,visible){
+							if (visible == true) {
+								$(this).addClass(animName);
+							}
+						});
+					});
+				}
+
+			// if the container is not parent
+			} else {
+				if(animName == null) {
+					// if no customize animation then use default animation
+					$(this).addClass('anim-content');
+				} else {
+					// if have customize animation
+					$(this).addClass('animated');
+					$(this).on('inview',function(event,visible){
+						if (visible == true) {
+							$(this).addClass(animName);
+						}
+					});
+				}
+				// if have customize animation-delay
+				if(animDelay != null) {
+					if(isNaN(animDelay)) {
+						animDelay = 0.5;
+					}
+					var delayNum = animDelay + 's';
+					$(this).css('-webkit-animation-delay', delayNum)
+							.css('-moz-animation-delay', delayNum)
+							.css('-ms-animation-delay', delayNum)
+							.css('-o-animation-delay', delayNum);
+				}
+			}
+
+		});
+
+		$.each($('.anim-content, .inview'),function(){
+			$(this).on('inview',function(event,visible){
+				if (visible == true) {
+					if(!$(this).hasClass('done')) {
+						$(this).addClass('visible done');
+					}
+				}
+			});
+		});
+
+		$.each($('[anim-control="parent"]'),function(){
+			var _this = $(this);
+
+			_this.on('inview',function(event,visible){
+				if (visible == true) {
+					if(!$('.anim-content', _this).hasClass('done')) {
+						$('.anim-content', _this).addClass('visible done');
+					}
+				}
+			});
+		});
 	}
 }
 bp.init();
 
-$(document).ready(function() {
+$(window).load(function() {
 	bp.ready();
 });
 

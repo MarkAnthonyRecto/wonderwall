@@ -4,7 +4,9 @@
 .ease,a,input[type="submit"],button { @include transition(all 0.5s ease); }
 .ease2 { @include transition(all 0.3s ease); }
 .ease-none { @include transition(none); }
-.auto { max-width:$maxWidth; margin-left: auto; margin-right: auto; }
+.auto { max-width:$maxWidth; margin-left: auto; margin-right: auto;
+	&.short { max-width: $mobileWidth; }
+}
 #main-wrapper { }
 .fl { float:left; }
 .fr { float:right; }
@@ -98,6 +100,8 @@
 		&:nth-child(10) { width: 21px; background-position: -452px -25px; @include animation(ww10 2s ease infinite); }
 		&:nth-child(11) { z-index: 2; position: absolute; top: 50%; left: 60%; width: 131px; height: 86px; background-position: 0 0; @extend .bp-centralize3; @include animation(ww11 2s ease infinite); }
 	}
+
+	@include breakpoint(tablet2) { left: 44%; @include transform(translate3d(-50%,-50%,0) scale(0.7)); }
 }
 
 @include keyframes(ww1) {
@@ -145,6 +149,14 @@
 	45%, 66% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.8); }
 }
 // you can include here the rest of your class name eg. home page
+.anim-content, .animated, .animate, .tween { opacity: 0; }
+.animated.visible { opacity: 1; }
+.anim-content.visible { @include animation(animRun 0.5s ease forwards); }
+@include keyframes(animRun) {
+	0% { opacity: 0; @include transform(translateY(40px)); }
+	100% { opacity: 1; @include transform(translateY(0)); }
+}
+
 .container-fluid {
 	.container { padding-left: 0; padding-right: 0; }
 	&.no-padding { padding-left: 0; padding-right: 0; }

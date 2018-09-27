@@ -10,11 +10,14 @@
 @import 'typography'; // for the paragraphs including header, p, line-height,etc
 
 @import 'icomoon';
+@import 'animate';
 
 // all customized styles
 @import 'header'; // the main style css
 @import 'footer'; // the main style css
 @import 'main'; // the main style css
+
 @import 'home';
+@import 'about';
 
 @import 'mobile'; // the main style css
