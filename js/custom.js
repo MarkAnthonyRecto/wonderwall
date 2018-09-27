@@ -3,13 +3,17 @@ var bp = {
 	width: 0,
 	height: 0,
 	init: function() {
+		bp.loader('init');
+
 		// for mobile
 		if (Modernizr.touch) {
 			$('html').addClass('bp-touch');
 		}
 
-		bp.loader('init');
-		bp.resize();
+		window.addEventListener('resize', function() {
+			bp.resize();
+		});
+
 		bp.inview();
 		bp.search();
 		bp.header();
@@ -286,8 +290,4 @@ bp.init();
 
 $(window).load(function() {
 	bp.ready();
-});
-
-$(window).resize(function() {
-	bp.resize();
 });
