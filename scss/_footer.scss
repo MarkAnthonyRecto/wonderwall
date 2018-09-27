@@ -14,5 +14,10 @@ footer { z-index: 2; position: relative; }
 }
 
 .fo-co-sns { text-align: center; @extend .bp-img;
-	li { display: inline-block; vertical-align: top; margin: 0 15px; }
+	li { display: inline-block; vertical-align: top; margin: 0 15px;
+		a { display: block; }
+		&:hover {
+			a { @include transform(translate3d(0,-7px,0)); }
+		}
+	}
 }

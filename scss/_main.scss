@@ -9,40 +9,6 @@
 .fl { float:left; }
 .fr { float:right; }
 .clr { display: block; float:none; clear:both; }
-.flex { display: flex; }
-.flex-center { align-items: center; }
-.flex-bottom { align-items: flex-end; }
-.flex-row-reverse { flex-direction: row-reverse; }
-.flex-xs { display: flex; }
-@include breakpoint(tablet2) {
-	.text-center-xs { text-align: center; }
-	.text-left-xs { text-align: left; }
-	.text-right-xs { text-align: right; }
-}
-@include breakpoint(sm) {
-	.flex-sm { display: flex; }
-	.flex-sm-row-none { flex-direction: inherit; }
-	.flex-sm-row-reverse { flex-direction: row-reverse; }
-	.text-center-sm { text-align: center; }
-	.text-left-sm { text-align: left; }
-	.text-right-sm { text-align: right; }
-}
-@include breakpoint(md) {
-	.flex-md { display: flex; }
-	.flex-md-row-none { flex-direction: inherit; }
-	.flex-md-row-reverse { flex-direction: row-reverse; }
-	.text-center-md { text-align: center; }
-	.text-left-md { text-align: left; }
-	.text-right-md { text-align: right; }
-}
-@include breakpoint(lg) {
-	.flex-lg { display: flex; }
-	.flex-lg-row-none { flex-direction: inherit; }
-	.flex-lg-row-reverse { flex-direction: row-reverse; }
-	.text-center-lg { text-align: center; }
-	.text-left-lg { text-align: left; }
-	.text-right-lg { text-align: right; }
-}
 .bp-set { display:inline-block; *display:inline;
   &.vm { vertical-align:middle; }
   &.vt { vertical-align:top; }
@@ -53,6 +19,16 @@
 .bp-ab { position:absolute; }
 .co-black { color: $coBlack; }
 .co-white { color: $coWhite; }
+
+.bg-red { background-color: $bgRed; }
+.bg-orange { background-color: $bgOrange; }
+.bg-forest-blue { background-color: $bgForestBlue; }
+.bg-water-fall { background-color: $bgWaterfall; }
+.bg-purple { background-color: $bgPurple; }
+.bg-dupain { background-color: $bgDupain; }
+.bg-gray { background-color: $bgGray; }
+
+
 .pad-edge { padding-left: 15px; padding-right: 15px; }
 .bp-img {
   img { max-width: 100%; height: auto; }
@@ -181,4 +157,29 @@
 			&[class*="mb"] { margin-bottom: 15px; }
 		}
 	}
+}
+
+// for backgrounds
+.bp-banner { background-position: 50% 50%; background-repeat: no-repeat; background-size: cover; }
+.parallax { background-attachment: fixed; @extend .bp-banner; overflow: hidden;
+  &.bp-ab { top: 0; left: 0; width: 100%; height: 100%; }
+  &.top { background-attachment: inherit; background-position: 50% 50% !important; }
+  &.cover { position: absolute; z-index: 2; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba($coBlack, 0.5);
+  	&.red { background-color: rgba(#7e1e1e, 0.5); }
+  }
+}
+html.bp-touch {
+  .parallax { background-attachment: inherit; background-position: 50% 50% !important; }
+}
+
+// for buttons
+.btn { display: block;
+	&.bp-set { display: inline-block; }
+}
+.hb-btn { color: inherit; letter-spacing: 1px;
+	> * { display: inline-block; vertical-align: middle; margin-right: 5px;
+		&:last-child { margin-right: 0; }
+	}
+	[class*="icon"] { font-size: 28px; }
+	&:hover, &:focus { color: inherit; opacity: 0.8; }
 }

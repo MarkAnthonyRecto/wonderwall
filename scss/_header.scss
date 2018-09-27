@@ -1,6 +1,6 @@
 // ionclude all your related style here in the header, you can leave it empty if the page has no header
 html, body { height:100%; min-height:100%; }
-header {}
+header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background-color: $coWhite; }
 .header-top { }
 .he-co-search { position: relative; width: 0; max-width: 265px; padding-left: 41px; border: 1px solid transparent; overflow: hidden;
 	input { display: block; width: 0; padding: 10px; padding-left: 0; border: none; @include appearance(none); font-size: inherit; }
@@ -18,14 +18,7 @@ header {}
 		> li { position: relative; display: block; float: left; width: 16.6666%; border-right: 1px solid $coWhite;
 			&:last-child { border-right: none; }
 			> a { display: block; padding: 5px; background-color: $coBlack; color: $coWhite; text-align: center; letter-spacing: 2px; }
-			.he-bo-icon { display: none; position: absolute; top: 100%; left: 0; width: 100%;
-				span { opacity: 1; @include transform(scale(0.8) translate3d(0,20px,0)); @extend .ease; }
-			}
-			&:hover {
-				.he-bo-icon {
-					span { opacity: 1; @include transform(scale(1) translate3d(0,0,0)); }
-				}
-			}
+			.he-bo-icon { display: none; position: absolute; top: 100%; left: 0; width: 100%; }
 		}
 	}
 }

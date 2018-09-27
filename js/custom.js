@@ -46,10 +46,10 @@ var bp = {
 				footerHeight = $('footer').outerHeight(),
 				footerTop = (footerHeight) * -1;
 				$('footer').css({marginTop: footerTop});
-				$('#main-wrapper').css({paddingBottom: footerHeight});
+				$('#main-wrapper').css({paddingTop: headerHeight, paddingBottom: footerHeight});
 
 				// for equal height
-				_resize.equalize($('.classname'));
+				_resize.equalize($('.hc-li-main'));
 			},
 			equalize: function(target) {
 				$(target).css({minHeight: 0});
@@ -110,7 +110,7 @@ var bp = {
 				});
 			},
 			menushow: function(target) {
-				$('.he-bo-icon', target).slideDown(300);
+				$('.he-bo-icon', target).stop(true,true).slideDown(300);
 			},
 			menuhide: function(target) {
 				$('.he-bo-icon', target).slideUp(300);
