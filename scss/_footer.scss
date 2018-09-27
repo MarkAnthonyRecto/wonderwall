@@ -1,0 +1,18 @@
+// ionclude all your related style here in the footer, you can leave it empty if the page has no footer
+footer { z-index: 2; position: relative; }
+.footer-content { color: $coGray;
+	hr { margin: 0; border-color: $lineGray2; }
+}
+
+.fo-co-links { text-align: center; line-height: 1.0;
+	li { display: inline-block; vertical-align: top; padding: 0 12px; border-right: 1px solid $coGray;
+		&:last-child { border-right: none; }
+		a { display: block; color: inherit;
+			&:hover { color: $coBlack; }
+		}
+	}
+}
+
+.fo-co-sns { text-align: center; @extend .bp-img;
+	li { display: inline-block; vertical-align: top; margin: 0 15px; }
+}

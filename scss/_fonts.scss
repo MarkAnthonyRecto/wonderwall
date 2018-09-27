@@ -1,0 +1,20 @@
+// include all imported fonts here even google fonts
+@charset 'utf-8';
+/** font face **/
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,400i,500,600,700|Open+Sans:400,400i,600,700');
+.font-a { font-family: 'Open Sans', 'Helvetica', 'Calibri'; }
+.font-b { font-family: 'Montserrat', 'Helvetica', 'Calibri'; }
+.font-c { font-family: 'NeoSansStd', 'Helvetica', 'Calibri'; }
+
+@font-face {
+  font-family: 'NeoSansStd';
+  src: url('../fonts/NeoSansStd-Regular.eot?#iefix') format('embedded-opentype'),  url('../fonts/NeoSansStd-Regular.otf')  format('opentype'),
+	     url('../fonts/NeoSansStd-Regular.woff') format('woff'), url('../fonts/NeoSansStd-Regular.ttf')  format('truetype'), url('../fonts/NeoSansStd-Regular.svg#NeoSansStd-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+.fw-400 { font-weight: normal; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: bold; }
+/** font face **/
