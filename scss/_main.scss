@@ -65,20 +65,17 @@
 .mb3{margin-bottom:$spaceThree; }
 .mb4{margin-bottom:$spaceFour; }
 .mb5{margin-bottom:$spaceFive; }
+
 @include breakpoint(phablet) {
-	.pt2 { padding-top: $spaceOne; }
 	.pt3 { padding-top: $spaceTwo; }
 	.pt4 { padding-top: $spaceThree; }
 	.pt5 { padding-top: $spaceFour; }
-	.pb2 { padding-bottom: $spaceOne; }
 	.pb3 { padding-bottom: $spaceTwo; }
 	.pb4 { padding-bottom: $spaceThree; }
 	.pb5 { padding-bottom: $spaceFour; }
-	.mt2 { margin-top: $spaceOne; }
 	.mt3 { margin-top: $spaceTwo; }
 	.mt4 { margin-top: $spaceThree; }
 	.mt5 { margin-top: $spaceFour; }
-	.mb2 { margin-bottom: $spaceOne; }
 	.mb3 { margin-bottom: $spaceTwo; }
 	.mb4 { margin-bottom: $spaceThree; }
 	.mb5 { margin-bottom: $spaceFour; }
@@ -86,7 +83,7 @@
 .bp-preloader { z-index: 9999; position:fixed; top: 0; left: 0; width:100%; height:100%; background-color: $coWhite; overflow:hidden;
 	// &:before { content: ''; display: block; position: absolute; top: 0; left: 50%; height: 100%; border-left: 1px solid red; }
 }
-.ww-preloader { position: absolute; top: 50%; left: 47.8%; @extend .bp-centralize3; /**outline: 1px solid red;**/
+.ww-preloader { position: absolute; top: 50%; left: 47.8%; width: 349px; @extend .bp-centralize3; /**outline: 1px solid red;**/
 	> span { display: block; float: left; height: 36px; margin: 0 3px; background-image: url('../images/logo_preloader.png'); background-repeat: no-repeat;
 		&:nth-child(1) { width: 40px; background-position: -147px -25px; @include animation(ww1 2s ease infinite); }
 		&:nth-child(2) { width: 29px; background-position: -193px -25px; @include animation(ww2 2s ease infinite); }
@@ -98,10 +95,14 @@
 		&:nth-child(8) { width: 30px; background-position: -415px -25px; @include animation(ww8 2s ease infinite); }
 		&:nth-child(9) { width: 21px; background-position: -452px -25px; @include animation(ww9 2s ease infinite); }
 		&:nth-child(10) { width: 21px; background-position: -452px -25px; @include animation(ww10 2s ease infinite); }
-		&:nth-child(11) { z-index: 2; position: absolute; top: 50%; left: 60%; width: 131px; height: 86px; background-position: 0 0; @extend .bp-centralize3; @include animation(ww11 2s ease infinite); }
+		&:nth-child(11) { z-index: 2; position: absolute; top: 50%; left: 50%; width: 131px; height: 86px; background-position: 0 0; @extend .bp-centralize3; @include animation(ww11 2s ease infinite); }
 	}
 
-	@include breakpoint(tablet2) { left: 44%; @include transform(translate3d(-50%,-50%,0) scale(0.7)); }
+	@include breakpoint(tablet) { left: 48.8%; @include transform(translate3d(-50%,-50%,0) scale(0.7));
+		> span {
+			&:nth-child(11) { left: 50%; }
+		}
+	}
 }
 
 @include keyframes(ww1) {
@@ -162,12 +163,20 @@
 	&.no-padding { padding-left: 0; padding-right: 0; }
 	@include breakpoint(md) { padding-left: 40px; padding-right: 40px; }
 	@include breakpoint(tablet) {
+		&.pt5 { padding-top: 40px; }
+		&.pb5 { padding-bottom: 40px; }
+
 		.auto, .container {
 			&[class*="pt"] { padding-top: 15px; }
 			&[class*="pb"] { padding-bottom: 15px; }
 			&[class*="mt"] { margin-top: 15px; }
 			&[class*="mb"] { margin-bottom: 15px; }
 		}
+	}
+
+	@include breakpoint(phablet) {
+		&.pt5 { padding-top: 20px; }
+		&.pb5 { padding-bottom: 20px; }		
 	}
 }
 

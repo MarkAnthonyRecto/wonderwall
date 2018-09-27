@@ -1,1 +1,33 @@
 // include all your new classess here that is intended for mobile. Only if necessary but please use breakpoints mixins
+.mobile-menu-btn { z-index: 10; display: none; position: absolute; top: 50%; right: 10px; width: 43px; height: 40px; color: $coBlack; @extend .bp-centralize;
+	> span { display: block; position: absolute; top: 50%; left: 50%; transition: all 0.3s ease; @extend .bp-centralize3;
+		&.mm-dots { opacity: 1; }
+		&.mm-close { opacity: 0; @include transform(translate3d(-50%,-50%,0) scale(0.8)); }
+	}
+	[class*="icon"] { display: block; font-size: 160%;
+		&.icon-dots-menu { font-size: 200%; }
+	}
+
+	&.active {
+		span {
+			&.mm-dots { opacity: 0; @include transform(translate3d(-50%,-50%,0) scale(0.8)); }
+			&.mm-close { opacity: 1; @include transform(translate3d(-50%,-50%,0) scale(1)); }
+		}
+	}
+
+	@include breakpoint(tablet2) { display: block; }
+}
+
+.bp-n-tablet { }
+.bp-tablet { display: none; }
+@include breakpoint(tablet) {
+	.bp-n-tablet { display: none; }
+	.bp-tablet { display: block; }
+}
+
+.bp-n-phablet { }
+.bp-phablet { display: none; }
+@include breakpoint(phablet) {
+	.bp-n-phablet { display: none; }
+	.bp-phablet { display: block; }
+}

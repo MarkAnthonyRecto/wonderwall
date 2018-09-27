@@ -262,8 +262,11 @@
   @else if $point == tablet {
     @media (max-width: 810px) { @content; }
   }
+  @else if $point == non-tablet2 {
+    @media (min-width: 769px) { @content; }
+  }
   @else if $point == tablet2 {
-    @media (max-width: 767px) { @content; }
+    @media (max-width: 768px) { @content; }
   }
   @else if $point == non-phablet {
     @media (min-width: 641px)  { @content; }

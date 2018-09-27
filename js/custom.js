@@ -68,6 +68,15 @@ var bp = {
 
 				// for equal height
 				_resize.equalize($('.hc-li-main'));
+				setTimeout(function() {
+					_resize.equalize($('.hl-co-set.set-small'));
+
+					var _hlSetMedHeight = ($('.hl-co-set.set-small').outerHeight() * 2) + parseInt($('.hl-co-set.set-small').css('margin-bottom'));
+					$('.hl-co-set.set-medium').css({minHeight: 0});
+					if(bp.width > 640) {
+						$('.hl-co-set.set-medium').css({minHeight: _hlSetMedHeight});
+					}
+				}, 500);
 			},
 			equalize: function(target) {
 				$(target).css({minHeight: 0});
@@ -119,19 +128,50 @@ var bp = {
 	},
 	header: function() {
 		var _header = {
+			btn: '',
 			init: function() {
+				_header.btn = '.mobile-menu-btn';
+
 				$('header .menu li').mouseenter(function() {
-					_header.menushow(this);
+					if(bp.width > 768) {
+						_header.menushow(this);
+					}
 				});
 				$('header .menu li').mouseleave(function() {
-					_header.menuhide(this);
+					if(bp.width > 768) {
+						_header.menuhide(this);
+					}
+				});
+
+				$(_header.btn).click(function() {
+					if($(this).hasClass('active')) {
+						_header.mobilehide();
+					} else {
+						_header.mobileshow();
+					}
 				});
 			},
 			menushow: function(target) {
 				$('.he-bo-icon', target).stop(true,true).slideDown(300);
 			},
 			menuhide: function(target) {
-				$('.he-bo-icon', target).slideUp(300);
+				$('.he-bo-icon', target).slideUp(300, function() {
+					TweenMax.set($('.he-bo-icon', target), {clearProps: 'all'});
+				});
+			},
+			mobileshow: function() {
+				$(_header.btn).addClass('active');
+				$('.header-bottom').show();
+				TweenMax.set('.menu li', {opacity: 0, y: 70});
+				TweenMax.staggerTo('.menu li', 0.5, {opacity: 1, y: 0}, 0.1, function() {
+					TweenMax.set('.menu li', {clearProps: 'all'});
+				});
+			},
+			mobilehide: function() {
+				$(_header.btn).removeClass('active');
+				TweenMax.to('.header-bottom', 0.5, {opacity: 0, y: 20, onComplete: function() {
+					TweenMax.set('.header-bottom', {clearProps: 'all'});
+				}});
 			}
 		}
 		_header.init();

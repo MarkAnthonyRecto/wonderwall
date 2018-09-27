@@ -22,15 +22,49 @@ h6 { font-size: 0.67em; }
 .fz-35 { font-size: 35px; }
 .fz-40 { font-size: 40px; }
 
+@include breakpoint(desktop) {
+	.fz-30 { font-size: 28px; }
+	.fz-35 { font-size: 32px; }
+	.fz-40 { font-size: 34px; }
+}
+
+@include breakpoint(tablet2) {
+	.fz-30 { font-size: 26px; }
+	.fz-35 { font-size: 30px; }
+	.fz-40 { font-size: 32px; }
+}
+
 @include breakpoint(phablet) {
 	.fz-16 { font-size: 14px; }
 	.fz-18 { font-size: 16px; }
 	.fz-20 { font-size: 18px; }
 	.fz-24 { font-size: 22px; }
+	.fz-30 { font-size: 24px; }
+	.fz-35 { font-size: 28px; }
+	.fz-40 { font-size: 30px; }
+}
+
+@include breakpoint(mobile) {
+	.fz-30 { font-size: 22px; }
+	.fz-35 { font-size: 26px; }
+	.fz-40 { font-size: 28px; }
+}
+
+@include breakpoint(mobile2) {
+	.fz-35 { font-size: 24px; }
+	.fz-40 { font-size: 26px; }
 }
 
 .bp-par { display: block; }
 
 .ab-co-par { @extend .bp-par;
 	h1, h2, h3, h4 { font-family: $fontC; }
+}
+
+.bp-title {
+	@include breakpoint(tablet2) {
+		&.fz-35, &.fz-40 {
+			br { display: none; }
+		}
+	}
 }
