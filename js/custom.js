@@ -133,6 +133,7 @@ var bp = {
 	header: function() {
 		var _header = {
 			btn: '',
+			cover: '',
 			init: function() {
 				_header.btn = '.mobile-menu-btn';
 
@@ -164,18 +165,21 @@ var bp = {
 				});
 			},
 			mobileshow: function() {
+				_header.cover = document.createElement('div');
+				$(_header.cover).addClass('he-co-cover');
+				$('body').prepend(_header.cover);
+				TweenMax.fromTo(_header.cover, 0.5, {opacity: 0}, {opacity: 1});
+
 				$(_header.btn).addClass('active');
-				$('.header-bottom').show();
-				TweenMax.set('.menu li', {opacity: 0, y: 70});
-				TweenMax.staggerTo('.menu li', 0.5, {opacity: 1, y: 0}, 0.1, function() {
-					TweenMax.set('.menu li', {clearProps: 'all'});
-				});
+				$('.header-bottom').slideDown(300);
 			},
 			mobilehide: function() {
-				$(_header.btn).removeClass('active');
-				TweenMax.to('.header-bottom', 0.5, {opacity: 0, y: 20, onComplete: function() {
-					TweenMax.set('.header-bottom', {clearProps: 'all'});
+				TweenMax.to(_header.cover, 0.5, {opacity: 0, onComplete: function() {
+					$(_header.cover).hide().remove();
 				}});
+
+				$(_header.btn).removeClass('active');
+				$('.header-bottom').slideUp(300);
 			}
 		}
 		_header.init();

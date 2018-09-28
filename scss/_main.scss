@@ -161,7 +161,6 @@
 .container-fluid {
 	.container { padding-left: 0; padding-right: 0; }
 	&.no-padding { padding-left: 0; padding-right: 0; }
-	@include breakpoint(md) { padding-left: 40px; padding-right: 40px; }
 	@include breakpoint(tablet) {
 		&.pt5 { padding-top: 40px; }
 		&.pb5 { padding-bottom: 40px; }

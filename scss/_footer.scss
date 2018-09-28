@@ -27,6 +27,6 @@ footer { z-index: 2; position: relative; }
 	}
 
 	@include breakpoint(phablet) {
-		li { width: 18%; margin: 0; padding: 0 10px; }
+		li { width: 15%; margin: 0; padding: 0 8px; }
 	}
 }
