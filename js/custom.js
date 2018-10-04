@@ -72,15 +72,13 @@ var bp = {
 
 				// for equal height
 				_resize.equalize($('.hc-li-main'));
-				setTimeout(function() {
-					_resize.equalize($('.hl-co-set.set-small'));
 
-					var _hlSetMedHeight = ($('.hl-co-set.set-small').outerHeight() * 2) + parseInt($('.hl-co-set.set-small').css('margin-bottom'));
-					$('.hl-co-set.set-medium').css({minHeight: 0});
-					if(bp.width > 640) {
-						$('.hl-co-set.set-medium').css({minHeight: _hlSetMedHeight});
-					}
-				}, 500);
+				_resize.equalize($('.hl-co-set.set-small'));
+				var _hlSetMedHeight = ($('.hl-co-set.set-small').outerHeight() * 2) + parseInt($('.hl-co-set.set-small').css('margin-bottom'));
+				$('.hl-co-set.set-medium').css({minHeight: 0});
+				if(bp.width > 640) {
+					$('.hl-co-set.set-medium').css({minHeight: _hlSetMedHeight});
+				}
 			},
 			equalize: function(target) {
 				$(target).css({minHeight: 0});

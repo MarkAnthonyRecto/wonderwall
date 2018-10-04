@@ -20,13 +20,17 @@
 .box-shadow { box-shadow: 3px 3px 7px rgba($coBlack, 0.3);
 	&.active { box-shadow: 1px 6px 20px rgba($coBlack, 0.3); }
 }
-.hl-co-set { margin-bottom: 18px; padding: 8px; background-color: $coBlue1; color: $coWhite; @extend .box-shadow, .ease;
+.hl-co-set { margin-bottom: 18px; padding: 8px; background-color: $coBlue1; color: $coWhite; @include animation(boxDown 0.5s ease forwards); @extend .box-shadow;
 	&.bg-blue2 { background-color: $coBlue2; }
 	&.bg-blue3 { background-color: $coBlue3; }
 	&.bg-blue4 { background-color: $coBlue4; }
 	&.bg-blue5 { background-color: $coBlue5; }
 
-	&:hover { @include transform(translate3d(0,-3px,0)); @extend .box-shadow.active; }
+	&.set-small { }
+	&.set-medium { }
+	&.set-large { min-height: 530px; }
+
+	&:hover { @include animation(boxUp 0.5s ease forwards); }
 
 	.hl-co-capt { padding-top: 15px; font-size: 13px; }
 
@@ -42,10 +46,6 @@
 		}	
 	}
 
-	@include breakpoint(desktop) { @include transition(none);
-		&:hover { @include transform(translate3d(0,0,0)); }
-	}
-
 	@include breakpoint(phablet) {
 		> a {
 			.row { display: block; margin-left: 0; margin-right: 0;
@@ -56,6 +56,14 @@
 			}
 		}
 	}
+}
+@include keyframes(boxUp) {
+	0% { @include transform(translate3d(0,0,0)); box-shadow: 3px 3px 7px rgba($coBlack, 0.3); }
+	100% { @include transform(translate3d(0,-5px,0)); box-shadow: 1px 6px 20px rgba($coBlack, 0.3); }
+}
+@include keyframes(boxDown) {
+	0% { @include transform(translate3d(0,-5px,0)); box-shadow: 1px 6px 20px rgba($coBlack, 0.3); }
+	100% { @include transform(translate3d(0,0,0)); box-shadow: 3px 3px 7px rgba($coBlack, 0.3); }
 }
 
 .hl-co-ba { position: relative; @extend .bp-img, .bp-img.wide;
@@ -136,7 +144,7 @@
 			}
 		}
 		&:after { content: ''; display: block; clear: both; float: none; }
-		&:hover { opacity: 0.8; }
+		&:hover { opacity: 0.7; }
 	}
 }
 
