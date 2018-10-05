@@ -46,6 +46,10 @@
 		}	
 	}
 
+	@include breakpoint(tablet) {
+		&.set-large { min-height: 0; }
+	}
+
 	@include breakpoint(phablet) {
 		> a {
 			.row { display: block; margin-left: 0; margin-right: 0;

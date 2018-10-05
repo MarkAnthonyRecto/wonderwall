@@ -262,7 +262,7 @@ html.bp-touch {
 }
 
 @include breakpoint(tablet2) {
-	a {
+	a { @include transition(none);
 		&:active, &:focus { background-color: rgba($coBlue2, 0.5); }
 	}
 } 
