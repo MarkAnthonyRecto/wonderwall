@@ -107,23 +107,28 @@
 	&.bg-blue4 { background-color: $coBlue4; }
 
 	@include breakpoint(tablet) {
-		.hl-bo-list {
-			@include breakpoint(tablet) { margin-left: -9px; margin-right: -9px; border-bottom: 1px solid $coWhite;
-				> li { display: inline-block; vertical-align: top; width: 50%; margin-left: -1px; margin-right: -1px; padding-left: 10px; padding-right: 10px; border-bottom: none; }
-			}
+		.hl-bo-list { margin-left: -9px; margin-right: -9px; border-bottom: 1px solid $coWhite;
+			> li { display: inline-block; vertical-align: top; width: 50%; margin-left: -1px; margin-right: -1px; padding-left: 10px; padding-right: 10px; border-bottom: none; }
 		}
 	}
 
 	@include breakpoint(phablet) {
 		&.mb2 { margin-bottom: 20px; }
 
-		.hb-li-set {
-			> a {
-				> div { float: none !important; max-width: 100% !important; padding-right: 0;
-					&.capt { padding-top: 10px; }
-				}
+		.hl-bo-list { margin-left: 0; margin-right: 0;
+			> li { display: block; width: auto; margin-left: 0; margin-right: 0; padding: 10px 0; border-bottom: 1px solid $coWhite;
+				&:first-child { padding-top: 15px; }
+				&:last-child { padding-bottom: 15px; border-bottom: none; }
 			}
 		}
+
+		// .hb-li-set {
+		// 	> a {
+		// 		> div { float: none !important; max-width: 100% !important; padding-right: 0;
+		// 			&.capt { padding-top: 10px; }
+		// 		}
+		// 	}
+		// }
 	}
 }
 .hl-bo-top { padding-bottom: 10px; border-bottom: 1px solid $defaultColor;
@@ -189,13 +194,36 @@
 		&:last-child { margin-bottom: 0; }
 	}
 
-	@include breakpoint(tablet) { margin-left: -9px; margin-right: -9px;
-		> li { display: inline-block; vertical-align: top; width: 50%; margin-left: -1px; margin-right: -1px; padding-left: 10px; padding-right: 10px; }
+	@include breakpoint(tablet) {
+		&.col3 { margin-left: -10px; margin-right: -10px;
+			> li { float: left; width: 33.33%; padding-left: 10px; padding-right: 10px; margin-bottom: 0; }
+			&:after { content: ''; display: block; float: none; clear: both; }
+		}
 
 		.hb-li-set {
 			> a {
 				> div { float: none; width: auto; max-width: 100% !important; padding-right: 0;
 					&.capt { padding-top: 10px; }
+				}
+			}
+		}
+	}
+
+	@include breakpoint(phablet) {
+		> li { padding: 10px 0; margin-bottom: 0; border-bottom: 1px solid $coWhite;
+			&:first-child { padding-top: 0; }
+			&:last-child { padding-bottom: 0; border-bottom: none; }
+		}
+		&.col3 { margin-left: 0; margin-right: 0;
+			> li { float: none; width: auto; padding-left: 0; padding-right: 0; }
+		}
+
+		.hb-li-set {
+			> a {
+				> div { float: left !important; padding-right: 10px;
+					&:last-child { padding-right: 0; }
+					&.banner { max-width: 150px !important; }
+					&.capt { max-width: calc(100% - 150px) !important; }
 				}
 			}
 		}
