@@ -75,12 +75,15 @@
 		.hl-co-icon	{ @extend .hl-co-icon.active; }
 	}
 }
+a.hl-co-ba { display: block; }
 
 .hl-co-icon { z-index: 3; position: relative; pointer-events: none; user-select: none; @extend .bp-img;
 	&.bp-ab { position: absolute; top: 50%; left: 50%; max-width: 25%; @extend .bp-centralize3, .ease2; }
 	&.active {
 		&.bp-ab { @include transform(translate3d(-50%,-50%,0) scale(1.1)); }
 	}
+
+	&.icon-medium { max-width: 30%; }
 }
 
 .hc-ca-title { letter-spacing: 1px; }
@@ -157,9 +160,7 @@
 	}
 }
 
-.hl-bo-bottom { margin-bottom: -1px;
-	@include breakpoint(tablet) { float: right; }
-}
+.hl-bo-bottom { margin-bottom: -1px; }
 
 .hl-bo-row { margin-left: -10px; margin-right: -10px;
 	.col { padding-left: 10px; padding-right: 10px;
@@ -167,6 +168,8 @@
 		&.short { flex: 0 0 25%; width: 25%; }
 		&.med { flex: 0 0 70%; width: 70%; }
 		&.short2 { flex: 0 0 30%; width: 30%; }
+
+		.btn-absolute { padding-left: 10px; padding-right: 10px; }
 	}
 
 	&.row-line {
@@ -190,7 +193,7 @@
 }
 
 .hl-vi-list {
-	> li { margin-bottom: 20px;
+	> li { margin-bottom: 15px;
 		&:last-child { margin-bottom: 0; }
 	}
 

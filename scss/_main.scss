@@ -253,13 +253,19 @@ html.bp-touch {
 .btn { display: block;
 	&.bp-set { display: inline-block; }
 }
-.hb-btn { color: inherit; letter-spacing: 1px;
+.hb-btn { display: block; color: inherit; letter-spacing: 1px;
+	&.bp-set { display: inline-block; }
 	> * { display: inline-block; vertical-align: middle; margin-right: 5px;
 		&:last-child { margin-right: 0; }
 	}
 	[class*="icon"] { font-size: 28px; }
 	&:hover, &:focus { color: inherit; opacity: 0.8; }
 }
+
+.btn-absolute { position: absolute; width: 100%;
+	&.btn-bottom-left { bottom: 0; left: 0; }
+}
+.btn-bottom { padding-bottom: 35px; }
 
 @include breakpoint(tablet2) {
 	a { @include transition(none);
