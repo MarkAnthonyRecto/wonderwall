@@ -26,6 +26,36 @@
 	&.bg-blue4 { background-color: $coBlue4; }
 	&.bg-blue5 { background-color: $coBlue5; }
 
+	&.bg-red1 { background-color: $coRed1; }
+	&.bg-red2 { background-color: $coRed2; }
+	&.bg-red3 { background-color: $coRed3; }
+	&.bg-red4 { background-color: $coRed4; }
+
+	&.bg-orange1 { background-color: $coOrange1; }
+	&.bg-orange2 { background-color: $coOrange2; }
+	&.bg-orange3 { background-color: $coOrange3; }
+	&.bg-orange4 { background-color: $coOrange4; }
+
+	&.bg-forest-blue1 { background-color: $coForestBlue1; }
+	&.bg-forest-blue2 { background-color: $coForestBlue2; }
+	&.bg-forest-blue3 { background-color: $coForestBlue3; }
+	&.bg-forest-blue4 { background-color: $coForestBlue4; }
+
+	&.bg-water-fall1 { background-color: $bgWaterfall1; }
+	&.bg-water-fall2 { background-color: $bgWaterfall2; }
+	&.bg-water-fall3 { background-color: $bgWaterfall3; }
+	&.bg-water-fall4 { background-color: $bgWaterfall4; }
+
+	&.bg-purple1 { background-color: $coPurple1; }
+	&.bg-purple2 { background-color: $coPurple2; }
+	&.bg-purple3 { background-color: $coPurple3; }
+	&.bg-purple4 { background-color: $coPurple4; }
+
+	&.bg-dupain1 { background-color: $coDupain1; }
+	&.bg-dupain2 { background-color: $coDupain2; }
+	&.bg-dupain3 { background-color: $coDupain3; }
+	&.bg-dupain4 { background-color: $coDupain4; }
+
 	&.set-small { }
 	&.set-medium { }
 	&.set-large { min-height: 530px; }
@@ -108,6 +138,12 @@ a.hl-co-ba { display: block; }
 
 .ho-la-box { padding: 10px; border-top: 10px solid $coBlack; background-color: $bgGray; @extend .box-shadow;
 	&.bg-blue4 { background-color: $coBlue4; }
+	&.bg-red { background-color: $bgRed; color: $coWhite; }
+	&.bg-orange { background-color: $bgOrange; color: $coWhite; }
+	&.bg-forest-blue { background-color: $bgForestBlue; color: $coWhite; }
+	&.bg-water-fall { background-color: $bgWaterfall; color: $coWhite; }
+	&.bg-purple { background-color: $bgPurple; color: $coWhite; }
+	&.bg-dupain { background-color: $bgDupain; }
 
 	@include breakpoint(tablet) {
 		.hl-bo-list { margin-left: -9px; margin-right: -9px; border-bottom: 1px solid $coWhite;
@@ -270,6 +306,12 @@ a.hl-co-ba { display: block; }
 	&:hover { color: $coWhite; }
 }
 .hs-to-icon { }
+.hst-v2 { padding: 10px;
+	> * { display: inline-block; vertical-align: middle; margin: 0 3px;
+		&:first-child { margin-left: 0; }
+		&:last-child { margin-right: 0; }
+	}
+}
 
 .hc-li-main { padding: 10px; border: 1px solid $lineGray3; border-top: none;
 	.hl-bo-list { margin: 10px 0; border-top: 1px solid $defaultColor;

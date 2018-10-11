@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
-<title>Wonderwall | Home</title>
+<title>Wonderwall | Play</title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <link rel="apple-touch-icon" sizes="57x57" href="favicon/apple-icon-57x57.png">
@@ -30,17 +30,23 @@
 <script src="js/html5.js"></script>
 <script src="js/lib/modernizr-2.8.3.min.js"></script>
 </head>
-<body>
+<body theme-color="#77479b">
 <div class="bp-preloader"><div class="ww-preloader"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
 <section id="main-container">
 	<header>
-		<div class="header-content">
+		<div class="header-content header-v2 bg-purple">
 			<div class="header-top container-fluid">
-				<div class="row align-items-center">
-					<div class="col-9 col-sm-6 mt1 mb1">
-						<div class="logo bp-img"><a href="index.html"><img src="images/logo_wonderwall.png" width="350" alt=""></a></div>
+				<div class="row align-items-center justify-content-between">
+					<div class="col-9 col-sm-4 mt1 mb1">
+						<div class="logo bp-img"><a href="index.html"><img src="images/logo_wonderwall2.png" width="80" alt=""></a></div>
 					</div>
-					<div class="col-3 col-sm-6 mt1 mb1">
+					<div class="col-sm-4 text-center bp-n-tablet">
+						<div class="hc-logo bp-set">
+							<span class="icon"><img src="images/icon_play.png" width="50" alt=""></span>
+							<span class="capt">PLAY</span>
+						</div>
+					</div>
+					<div class="col-3 col-sm-4 mt1 mb1">
 						<div class="he-co-search fz-14 fr">
 							<form action="" method="post">
 								<div class="hc-se-icon"><i class="icon-search"></i></div>
@@ -59,7 +65,7 @@
 						<li><a href="people.html">PEOPLE</a><a href="people.html" class="he-bo-icon icon-orange"><span><img src="images/icon_people.png" width="140" alt=""><p>PEOPLE</p></span></a></li>
 						<li><a href="places.html">PLACES</a><a href="places.html" class="he-bo-icon icon-forest-blue"><span><img src="images/icon_places.png" width="140" alt=""><p>PLACES</p></span></a></li>
 						<li><a href="family.html">FAMILY</a><a href="family.html" class="he-bo-icon icon-waterfall"><span><img src="images/icon_family.png" width="140" alt=""><p>FAMILY</p></span></a></li>
-						<li><a href="play.html">PLAY</a><a href="play.html" class="he-bo-icon icon-purple"><span><img src="images/icon_play.png" width="140" alt=""><p>PLAY</p></span></a></li>
+						<li class="active"><a href="play.html">PLAY</a><a href="play.html" class="he-bo-icon icon-purple"><span><img src="images/icon_play.png" width="140" alt=""><p>PLAY</p></span></a></li>
 						<li><a href="health.html">HEALTH</a><a href="health.html" class="he-bo-icon icon-dupain"><span><img src="images/icon_health.png" width="140" alt=""><p>HEALTH</p></span></a></li>
 					</ul>
 				</div>
@@ -69,16 +75,20 @@
 	<section id="main-wrapper">
 		<div class="container-fluid pt5">
 			<div class="auto">
+				<div class="hl-se-top hst-v2 bg-purple fz-40 bp-tablet animate">
+					<div class="icon"><img src="images/icon_play.png" width="45" alt=""></div>
+					<h1 class="bp-title font-c fz-40 bp-tt no-margin">PLAY</h1>
+				</div>
+
 				<div class="ho-co-group ho-la-row animate">
 					<div class="col large">
 						<div class="ho-la-co">
 							<div class="hl-co-row">
 								<div class="col">
-									<div class="hl-co-set set-large">
+									<div class="hl-co-set set-large bg-purple1">
 										<a href="#">
 											<div class="hl-co-ba">
-												<img src="images/latest_banner_big1.jpg" alt="">
-												<div class="hl-co-icon bp-ab"><img src="images/icon_play_button.png" alt=""></div>
+												<img src="images/latest_banner_big2.jpg" alt="">
 											</div>
 											<div class="hl-co-capt font-b pt1 pb1">
 												<h4 class="hc-ca-title fw-700">WHERE TO GO</h4>
@@ -91,7 +101,7 @@
 
 								<!-- start of 2 left and 1 right -->
 								<div class="col col-half">
-									<div class="hl-co-set set-small bg-blue2">
+									<div class="hl-co-set set-small bg-purple2">
 										<a href="#">
 											<div class="row">
 												<div class="col large">
@@ -110,7 +120,7 @@
 											</div>
 										</a>
 									</div>
-									<div class="hl-co-set set-small bg-blue3">
+									<div class="hl-co-set set-small bg-purple3">
 										<a href="#">
 											<div class="row flex-row-reverse">
 												<div class="col large">
@@ -131,7 +141,7 @@
 									</div>
 								</div>
 								<div class="col col-half">
-									<div class="hl-co-set set-medium bg-blue4">
+									<div class="hl-co-set set-medium bg-purple4">
 										<a href="#">
 											<div class="hl-co-ba">
 												<div class="bp-n-phablet"><img src="images/latest_banner_medium1.jpg" alt=""></div>
@@ -148,8 +158,8 @@
 								<!-- end of 2 left and 1 right -->
 
 								<!-- start of 1 left and 1 right -->
-								<div class="col col-half" style="display: none;">
-									<div class="hl-co-set set-medium bg-blue2">
+								<div class="col col-half" style="display: block;">
+									<div class="hl-co-set set-medium bg-purple2">
 										<a href="#">
 											<div class="hl-co-ba">
 												<div class="bp-n-phablet"><img src="images/latest_banner_medium1.jpg" alt=""></div>
@@ -163,8 +173,8 @@
 										</a>
 									</div>
 								</div>
-								<div class="col col-half" style="display: none;">
-									<div class="hl-co-set set-medium bg-blue4">
+								<div class="col col-half" style="display: block;">
+									<div class="hl-co-set set-medium bg-purple3">
 										<a href="#">
 											<div class="hl-co-ba">
 												<div class="bp-n-phablet"><img src="images/latest_banner_medium1.jpg" alt=""></div>
@@ -182,8 +192,8 @@
 								<!-- end of 1 left and 1 right -->
 
 								<!-- start of 2 left and 2 right -->
-								<div class="col col-half" style="display: none;">
-									<div class="hl-co-set set-small bg-blue2">
+								<div class="col col-half" style="display: block;">
+									<div class="hl-co-set set-small bg-purple2">
 										<a href="#">
 											<div class="row">
 												<div class="col large">
@@ -203,7 +213,7 @@
 											</div>
 										</a>
 									</div>
-									<div class="hl-co-set set-small bg-blue5">
+									<div class="hl-co-set set-small bg-purple1">
 										<a href="#">
 											<div class="row flex-row-reverse">
 												<div class="col large">
@@ -223,8 +233,8 @@
 										</a>
 									</div>
 								</div>
-								<div class="col col-half" style="display: none;">
-									<div class="hl-co-set set-small bg-blue4">
+								<div class="col col-half" style="display: block;">
+									<div class="hl-co-set set-small bg-purple3">
 										<a href="#">
 											<div class="row">
 												<div class="col large">
@@ -243,7 +253,7 @@
 											</div>
 										</a>
 									</div>
-									<div class="hl-co-set set-small bg-blue3">
+									<div class="hl-co-set set-small bg-purple4">
 										<a href="#">
 											<div class="row flex-row-reverse">
 												<div class="col large">
@@ -397,7 +407,7 @@
 					</div>
 				</div>
 				<div class="ho-co-group animate">
-					<div class="ho-la-box bg-blue4">
+					<div class="ho-la-box bg-purple">
 						<div class="hl-bo-top">
 							<div class="hl-bo-row row align-items-center">
 								<div class="col">

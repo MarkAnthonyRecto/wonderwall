@@ -14,6 +14,7 @@ var bp = {
 			bp.resize();
 		});
 
+		bp.resize();
 		bp.inview();
 		bp.search();
 		bp.header();
@@ -132,6 +133,8 @@ var bp = {
 		var _header = {
 			btn: '',
 			cover: '',
+			theme: 'body[theme-color]',
+			color: 0,
 			init: function() {
 				_header.btn = '.mobile-menu-btn';
 
@@ -153,6 +156,14 @@ var bp = {
 						_header.mobileshow();
 					}
 				});
+
+				// get the theme color
+				if($(_header.theme).length == 1) {
+					_header.color = $('body').attr('theme-color');
+				}
+
+				// header behavior upon scroll
+				_header.scroller();
 			},
 			menushow: function(target) {
 				$('.he-bo-icon', target).stop(true,true).slideDown(300);
@@ -178,6 +189,47 @@ var bp = {
 
 				$(_header.btn).removeClass('active');
 				$('.header-bottom').slideUp(300);
+			},
+			scroller: function() {
+				var _scroller = {
+					counter: 0,
+					init: function() {
+						if(bp.width > 768) {
+							if($(_header.theme).length == 1) {
+								_scroller.coloring();
+							}
+						} else {
+							if($(_header.theme).length == 1) {
+								_scroller.coloring('default');
+							}
+						}
+
+						window.addEventListener('scroll', function() {
+							if(bp.width < 810) {
+								if($('header').offset().top > $('header').outerHeight()) {
+									if(_scroller.counter == 0) {
+										_scroller.counter = 1;
+										$('.header-content').addClass('scroll-down');
+										_scroller.coloring();
+									}
+								} else {
+									_scroller.counter = 0;
+									$('.header-content').removeClass('scroll-down');
+									_scroller.coloring('default');
+								}
+							}
+						}, false);
+					},
+					coloring: function(state) {
+						$('meta[name=theme-color]').remove();
+						if(state == 'default') {
+							$('head').append( '<meta name="theme-color" content="#cccccc">' );
+						} else {
+							$('head').append( '<meta name="theme-color" content="'+_header.color+'">' );
+						}
+					}
+				}
+				_scroller.init();
 			}
 		}
 		_header.init();
