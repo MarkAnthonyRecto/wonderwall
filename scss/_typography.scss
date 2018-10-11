@@ -55,7 +55,18 @@ h6 { font-size: 0.67em; }
 	.fz-40 { font-size: 26px; }
 }
 
-.bp-par { display: block; }
+.bp-par { display: block;
+	
+}
+
+.in-co-par { @extend .bp-par;
+	h5 { margin: inherit; font-family: $fontB; font-weight: 600; }	
+	h3 { font-family: $fontC; }
+
+	.bp-img {
+		&.mb1 { margin-bottom: 15px; }
+	}
+}
 
 .ab-co-par { @extend .bp-par;
 	h1, h2, h3, h4 { font-family: $fontC; }

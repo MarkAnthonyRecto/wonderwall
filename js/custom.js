@@ -25,6 +25,10 @@ var bp = {
 			bp.resize();
 			bp.animation();
 		});
+
+		$('[sticky-content]').stick_in_parent({
+			offset_top: ($('header').outerHeight() + 20)
+		});
 	},
 	loader: function(state, afterLoad) {
 		var _loader = {

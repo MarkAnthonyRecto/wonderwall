@@ -7,9 +7,16 @@
 .ho-la-row { margin-left: -9px; margin-right: -9px;
 	> .col { float: left; width: 100%; padding-left: 9px; padding-right: 9px;
 		&.large { width: 67.5%; }
+		&.large2 { width: 80.5%; }
+		&.medium { width: 48%; }
 		&.short { width: 32.5%; }
+		&.short2 { width: 19.5%; }
 	}
 	&:after { content: ''; display: block; clear: both; }
+
+	&.row-flex { display: flex;
+		> .col { flex-basis: inherit; }
+	}
 
 	@include breakpoint(tablet) { margin-left: 0; margin-right: 0;
 		> .col { float: none; width: auto !important; padding-left: 0; padding-right: 0; }
@@ -118,6 +125,8 @@ a.hl-co-ba { display: block; }
 
 .hc-ca-title { letter-spacing: 1px; }
 .hl-co-capt {
+	p { margin-bottom: 10px; }
+
 	> * {
 		&:last-child { margin-bottom: 0; }
 	}
@@ -137,6 +146,8 @@ a.hl-co-ba { display: block; }
 }
 
 .ho-la-box { padding: 10px; border-top: 10px solid $coBlack; background-color: $bgGray; @extend .box-shadow;
+	&.box-simple { padding: 10px 0 0 0; background-color: transparent; box-shadow: none; }
+
 	&.bg-blue4 { background-color: $coBlue4; }
 	&.bg-red { background-color: $bgRed; color: $coWhite; }
 	&.bg-orange { background-color: $bgOrange; color: $coWhite; }
@@ -197,6 +208,14 @@ a.hl-co-ba { display: block; }
 }
 
 .hl-bo-bottom { margin-bottom: -1px; }
+
+.hl-bo-sns { @extend .bp-img;
+	> li { padding: 10px 0; border-bottom: 1px solid $lineGray3;
+		a { display: inline-block;
+			&:hover { opacity: 0.7; }
+		}
+	}
+}
 
 .hl-bo-row { margin-left: -10px; margin-right: -10px;
 	.col { padding-left: 10px; padding-right: 10px;
@@ -318,3 +337,33 @@ a.hl-co-ba { display: block; }
 		> li { border-bottom-color: $defaultColor; }
 	}
 }
+
+.art-list {
+	> li { }
+
+	&.col3 { margin-left: -8px; margin-right: -12px;
+		> li { display: inline-block; vertical-align: top; width: 33.33%; padding-left: 10px; padding-right: 10px; margin-left: -2px; margin-right: -2px; }
+	}
+
+	@include breakpoint(phablet) {
+		&.col3 { margin-left: 0; margin-right: 0;
+			> li { display: block; width: auto; padding-left: 0; padding-right: 0; margin: 0 0 25px 0;
+				&:last-child { margin-bottom: 0; }
+			}
+		}
+	}
+}
+
+.ar-li-set {
+	> a { display: block; color: inherit;
+		&:hover { opacity: 0.7; }
+	}
+
+	.hl-co-capt { padding: 15px; }
+
+	@include breakpoint(phablet) {
+		.hl-co-capt { padding: 15px 0 0 0; }
+	}
+}
+
+.sticky-content { }
