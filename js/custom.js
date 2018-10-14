@@ -29,6 +29,12 @@ var bp = {
 		$('[sticky-content]').stick_in_parent({
 			offset_top: ($('header').outerHeight() + 20)
 		});
+
+		if (!(Modernizr.touch)) {
+			$('.nice-select').niceSelect();
+		}
+
+		bp.carousels();
 	},
 	loader: function(state, afterLoad) {
 		var _loader = {
@@ -342,6 +348,79 @@ var bp = {
 				}
 			});
 		});
+	},
+	carousels: function() {
+		var _carousels = {
+			init: function() {
+				$('.gallery-carousel').owlCarousel({
+					items: 1,
+					nav: true,
+					dots: false,
+					smartSpeed: 700,
+					loop: true,
+					onInitialized : function(event) {
+						_carousels.resizeitem($(event.target));
+					},
+					onResized: function(event) {
+						_carousels.resizeitem($(event.target));
+					}
+				});
+
+				$('.video-top-gallery .owl-carousel').owlCarousel({
+					nav: true,
+					dots: false,
+					smartSpeed: 700,
+					center: true,
+					loop: true,
+					responsive: {
+						0: {
+							items: 1,
+							margin: 0,
+							startPosition: 0
+						},
+						481: {
+							items: 3,
+							margin: 18,
+							startPosition: 1
+						}
+					}
+				});
+
+				$('.video-carousel .owl-carousel').owlCarousel({
+					nav: true,
+					dots: false,
+					smartSpeed: 700,
+					loop: true,
+					responsive: {
+						0: {
+							items: 2,
+							margin: 10
+						},
+						640: {
+							items: 3,
+							margin: 10
+						},
+						810: {
+							items: 4,
+							margin: 18
+						}
+					}
+				});
+			},
+			resizeitem: function(target) {
+				$('.owl-item', target).each(function() {
+					var _item = $(this),
+					_height = _item.outerHeight();
+
+					if(_height < target.outerHeight()) {
+						_item.css({marginTop: ((target.outerHeight() - _item.outerHeight()) / 2)});
+					} else {
+						_item.css({marginTop: 0});
+					}
+				});
+			}
+		}
+		_carousels.init();
 	}
 }
 bp.init();

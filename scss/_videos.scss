@@ -1,0 +1,73 @@
+.video-top-gallery { position: relative; overflow: hidden;
+	.owl-carousel { width: 170%; margin-left: -35%;
+		.owl-item {
+			.item { opacity: 0.8; @extend .ease;
+				.hl-co-icon, > .hl-co-capt { opacity: 0; @extend .ease; }
+			}
+			&.center {
+				.item { opacity: 1;
+					.hl-co-icon, > .hl-co-capt { opacity: 1; }
+				}
+			}
+		}
+	}
+
+	.car-nav {
+		.owl-nav {
+			button { top: 30%;
+				&.owl-next { right: 21%; }
+				&.owl-prev { left: 21%; }
+				span { font-size: 80px; }
+			}
+		}
+	}
+
+	@include breakpoint(tablet2) {
+		.car-nav {
+			.owl-nav {
+				button {
+					span { font-size: 60px; }
+				}
+			}
+		}
+	}
+
+	@include breakpoint(mobile) {
+		.owl-carousel { width: 100%; margin-left: 0; }
+		.car-nav {
+			.owl-nav {
+				button {
+					&.owl-next { right: 10px; }
+					&.owl-prev { left: 10px; }
+				}
+			}
+		}
+	}
+}
+.ho-la-box {
+	.video-top-gallery { margin-left: -10px; margin-right: -10px; }
+
+	@include breakpoint(mobile) {
+		.video-top-gallery { margin-left: 0; margin-right: 0; }
+	}
+}
+
+.video-carousel {
+	.car-nav {
+		.owl-nav {
+			button { top: 30%;
+				span { font-size: 80px; }
+			}
+		}
+	}
+
+	@include breakpoint(tablet2) {
+		.car-nav {
+			.owl-nav {
+				button {
+					span { font-size: 60px; }
+				}
+			}
+		}
+	}
+}

@@ -320,7 +320,7 @@ a.hl-co-ba { display: block; }
 		p { margin-bottom: 5px; }
 	}
 }
-.hl-se-top { display: block; position: relative; padding: 5px 10px; border-top: 10px solid $coBlack; color: $coWhite;
+.hl-se-top { display: block; position: relative; padding: 5px 10px; border-top: 10px solid $coBlack; background-color: $coBlue4; color: $coWhite;
 	.hs-to-icon { position: absolute; top: 50%; left: 8px; font-size: 110%; @extend .bp-centralize; }
 	&:hover { color: $coWhite; }
 }
