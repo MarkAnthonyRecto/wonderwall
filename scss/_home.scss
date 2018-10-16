@@ -64,7 +64,7 @@
 	&.bg-dupain4 { background-color: $coDupain4; }
 
 	&.set-small { }
-	&.set-medium { }
+	&.set-medium { min-height: 365px; }
 	&.set-large { min-height: 530px; }
 
 	&:hover { @include animation(boxUp 0.5s ease forwards); }
@@ -125,6 +125,7 @@ a.hl-co-ba { display: block; }
 
 .hc-ca-title { letter-spacing: 1px; }
 .hl-co-capt {
+	h1.bp-title { min-height: 45px; }
 	p { margin-bottom: 10px; }
 
 	> * {
@@ -189,7 +190,11 @@ a.hl-co-ba { display: block; }
 }
 
 .hl-bo-list {
-	> li { padding: 11px 0; border-bottom: 1px solid $coWhite; }
+	> li { padding: 11px 0; border-bottom: 1px solid $coWhite;
+		.hl-co-capt {
+			> p:first-child { min-height: 65px; }
+		}
+	}
 }
 .hb-li-set {
 	> a { display: block; color: inherit;
@@ -367,3 +372,20 @@ a.hl-co-ba { display: block; }
 }
 
 .sticky-content { }
+
+.ho-co-float { z-index: 100;
+	&.bottom-left { position: fixed; bottom: 0; left: 0; background-color: $coWhite;
+		.hl-bo-sns {
+			> li { display: inline-block; vertical-align: middle; max-width: 30px; margin: 0 5px; padding: 0; border-bottom: none; }
+		}
+	}
+}
+
+.hc-fl-list { display: table;
+	> div { display: table-cell; vertical-align: middle; padding: 7px 10px; border-right: 1px solid $coBlack;
+		&:last-child { border-right: none; }
+		&.capt {
+			.bp-title { margin: 0; }
+		}
+	}
+}

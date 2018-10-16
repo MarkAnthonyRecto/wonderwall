@@ -66,6 +66,12 @@ h6 { font-size: 0.67em; }
 	.bp-img {
 		&.mb1 { margin-bottom: 15px; }
 	}
+
+	p {
+		a { color: inherit; box-shadow: inset 0 -7px 0 lighten($coBlue1, 30%);
+			&:hover { background-color: lighten($coBlue1, 30%); }
+		}
+	}
 }
 
 .ab-co-par { @extend .bp-par;

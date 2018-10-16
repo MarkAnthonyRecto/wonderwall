@@ -2,8 +2,14 @@
 var bp = {
 	width: 0,
 	height: 0,
+	enableloader: false,
 	init: function() {
-		bp.loader('init');
+		if(bp.enableloader) {
+			bp.loader('init');
+		} else {
+			bp.loader('disable');
+			bp.ready();
+		}
 
 		// for mobile
 		if (Modernizr.touch) {
@@ -15,16 +21,20 @@ var bp = {
 		});
 
 		bp.resize();
-		bp.inview();
 		bp.search();
 		bp.header();
 	},
 	ready: function() {
 		// hide the preloader
-		bp.loader('close', function() {
+		if(bp.enableloader) {
+			bp.loader('close', function() {
+				bp.resize();
+				bp.animation();
+			});
+		} else {
 			bp.resize();
 			bp.animation();
-		});
+		}
 
 		$('[sticky-content]').stick_in_parent({
 			offset_top: ($('header').outerHeight() + 20)
@@ -59,6 +69,9 @@ var bp = {
 			},
 			close: function() {
 				_loader.timer();
+			},
+			disable: function() {
+				$('.bp-preloader').remove();
 			}
 		}
 
@@ -66,6 +79,8 @@ var bp = {
 			_loader.init();
 		} else if(state == 'close') {
 			_loader.close();
+		} else if(state == 'disable') {
+			_loader.disable();
 		}
 	},
 	resize: function() {
@@ -250,6 +265,8 @@ var bp = {
 		(m=a.left>c.left?"right":a.left+e.width<c.left+m?"left":"both",l=a.top>c.top?"bottom":a.top+e.height<c.top+l?"top":"both",c=m+"-"+l,(!g||g!==c)&&b.data("inview",c).trigger("inview",[!0,m,l])):g&&b.data("inview",!1).trigger("inview",[!1])}}},250)})(jQuery);
 	},
 	animation: function() {
+		bp.inview();
+
 		if (Modernizr.touch) {
 			//$('.animate').removeClass('animate').removeAttr('anim-control').removeAttr('anim-delay').removeAttr('anim-name');
 		}
@@ -426,5 +443,7 @@ var bp = {
 bp.init();
 
 $(window).load(function() {
-	bp.ready();
+	if(bp.enableloader) {
+		bp.ready();
+	}
 });
