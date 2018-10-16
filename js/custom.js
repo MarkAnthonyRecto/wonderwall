@@ -2,7 +2,7 @@
 var bp = {
 	width: 0,
 	height: 0,
-	enableloader: false,
+	enableloader: true,
 	init: function() {
 		if(bp.enableloader) {
 			bp.loader('init');
