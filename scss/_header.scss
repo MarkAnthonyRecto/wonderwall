@@ -9,17 +9,17 @@ header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background
 	@include breakpoint(tablet) {
 		.logo { max-width: 250px; }
 
-		&.header-v2 { background-color: $lineGray3; /** include transition(all 0.5s ease); **/
+		&.header-v2 { background-color: $lineGray3 !important; /** include transition(all 0.5s ease); **/
 			.logo { max-width: 50px; }
 		}
 
 		&.scroll-down {
-			&.bg-red { background-color: $bgRed; }
-			&.bg-orange { background-color: $bgOrange; }
-			&.bg-forest-blue { background-color: $bgForestBlue; }
-			&.bg-water-fall { background-color: $bgWaterfall; }
-			&.bg-purple { background-color: $bgPurple; }
-			&.bg-dupain { background-color: $bgDupain; }
+			&.bg-red { background-color: $bgRed !important; }
+			&.bg-orange { background-color: $bgOrange !important; }
+			&.bg-forest-blue { background-color: $bgForestBlue !important; }
+			&.bg-water-fall { background-color: $bgWaterfall !important; }
+			&.bg-purple { background-color: $bgPurple !important; }
+			&.bg-dupain { background-color: $bgDupain !important; }
 		}
 	}
 
