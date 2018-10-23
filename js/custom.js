@@ -2,7 +2,7 @@
 var bp = {
 	width: 0,
 	height: 0,
-	enableloader: true,
+	enableloader: false,
 	init: function() {
 		if(bp.enableloader) {
 			bp.loader('init');
@@ -158,10 +158,11 @@ var bp = {
 		var _header = {
 			btn: '',
 			cover: '',
-			theme: 'body[theme-color]',
+			theme: '',
 			color: 0,
 			init: function() {
 				_header.btn = '.mobile-menu-btn';
+				_header.theme = $('body').attr('theme-color');
 
 				$('header .menu li').mouseenter(function() {
 					if(bp.width > 768) {
@@ -183,8 +184,20 @@ var bp = {
 				});
 
 				// get the theme color
-				if($(_header.theme).length == 1) {
-					_header.color = $('body').attr('theme-color');
+				if(_header.theme) {
+					if(_header.theme == 'red') {
+						_header.color = '#ce2127';
+					} else if(_header.theme == 'orange') {
+						_header.color = '#f8901f';
+					} else if(_header.theme == 'forest-blue') {
+						_header.color = '#0d4f69';
+					} else if(_header.theme == 'water-fall') {
+						_header.color = '#1ea597';
+					} else if(_header.theme == 'purple') {
+						_header.color = '#77479b';
+					} else if(_header.theme == 'dupain') {
+						_header.color = '#29a4dd';
+					}
 				}
 
 				// header behavior upon scroll
@@ -220,11 +233,11 @@ var bp = {
 					counter: 0,
 					init: function() {
 						if(bp.width > 768) {
-							if($(_header.theme).length == 1) {
+							if(_header.theme) {
 								_scroller.coloring();
 							}
 						} else {
-							if($(_header.theme).length == 1) {
+							if(_header.theme) {
 								_scroller.coloring('default');
 							}
 						}

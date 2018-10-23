@@ -1,0 +1,121 @@
+body {
+	.bg-theme1 { background-color: $coBlue1; }
+	.bg-theme2 { background-color: $coBlue2; }
+	.bg-theme3 { background-color: $coBlue3; }
+	.bg-theme4 { background-color: $coBlue4; }
+	.bg-theme5 { background-color: $coBlue5; }
+	.bg-theme6 { background-color: $coBlue4; }
+
+	&[theme-color] {
+		.header-content { background-color: $coBlue1; color: $coWhite;
+			.mobile-menu-btn { color: $coWhite; }
+		}
+
+		.menu>ul>li.active>a { background-color: $coBlue1; }
+
+		.ho-la-box.bg-theme6 { color: $coWhite; }
+
+		@include breakpoint(tablet) {
+			.header-content { background-color: $lineGray3 !important;
+				.logo { max-width: 50px; }
+			}
+		}
+	}
+
+	&[theme-color="red"] {
+		.header-content	{ background-color: $bgRed; }
+		.menu>ul>li.active>a { background-color: $bgRed; }
+		.bg-theme1 { background-color: $bgRed; }
+		.bg-theme2 { background-color: $coRed2; }
+		.bg-theme3 { background-color: $coRed3; }
+		.bg-theme4 { background-color: $coRed4; }
+		.bg-theme6 { background-color: $bgRed; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgRed !important; }
+			}
+		}			
+	}
+
+	&[theme-color="orange"] {
+		.header-content	{ background-color: $bgOrange; }
+		.menu>ul>li.active>a { background-color: $bgOrange; }
+		.bg-theme1 { background-color: $coOrange1; }
+		.bg-theme2 { background-color: $coOrange2; }
+		.bg-theme3 { background-color: $coOrange3; }
+		.bg-theme4 { background-color: $coOrange4; }
+		.bg-theme6 { background-color: $bgOrange; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgOrange !important; }
+			}
+		}			
+	}
+
+	&[theme-color="forest-blue"] {
+		.header-content	{ background-color: $bgForestBlue; }
+		.menu>ul>li.active>a { background-color: $bgForestBlue; }
+		.bg-theme1 { background-color: $coForestBlue1; }
+		.bg-theme2 { background-color: $coForestBlue2; }
+		.bg-theme3 { background-color: $coForestBlue3; }
+		.bg-theme4 { background-color: $coForestBlue4; }
+		.bg-theme6 { background-color: $bgForestBlue; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgForestBlue !important; }
+			}
+		}			
+	}
+
+	&[theme-color="water-fall"] {
+		.header-content	{ background-color: $bgWaterfall; }
+		.menu>ul>li.active>a { background-color: $bgWaterfall; }
+		.bg-theme1 { background-color: $bgWaterfall1; }
+		.bg-theme2 { background-color: $bgWaterfall2; }
+		.bg-theme3 { background-color: $bgWaterfall3; }
+		.bg-theme4 { background-color: $bgWaterfall4; }
+		.bg-theme6 { background-color: $bgWaterfall; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgWaterfall !important; }
+			}
+		}			
+	}
+
+	&[theme-color="purple"] {
+		.header-content	{ background-color: $bgPurple; }
+		.menu>ul>li.active>a { background-color: $bgPurple; }
+		.bg-theme1 { background-color: $coPurple1; }
+		.bg-theme2 { background-color: $coPurple2; }
+		.bg-theme3 { background-color: $coPurple3; }
+		.bg-theme4 { background-color: $coPurple4; }
+		.bg-theme6 { background-color: $bgPurple; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgPurple !important; }
+			}
+		}			
+	}
+
+	&[theme-color="dupain"] {
+		.header-content	{ background-color: $bgDupain; }
+		.menu>ul>li.active>a { background-color: $bgDupain; }
+		.bg-theme1 { background-color: $coDupain1; }
+		.bg-theme2 { background-color: $coDupain2; }
+		.bg-theme3 { background-color: $coDupain3; }
+		.bg-theme4 { background-color: $coDupain4; }
+		.bg-theme6 { background-color: $bgDupain; }
+		.ho-la-box.bg-theme6 { color: inherit; }
+
+		@include breakpoint(tablet) {
+			.header-content {
+				&.scroll-down { background-color: $bgDupain !important; }
+			}
+		}			
+	}
+}

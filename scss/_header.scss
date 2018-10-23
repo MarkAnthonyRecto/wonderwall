@@ -2,25 +2,8 @@
 html, body { height:100%; min-height:100%; }
 header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background-color: $coWhite; }
 .header-content { background-color: $coWhite;
-	&.header-v2 { color: $coWhite;
-		.mobile-menu-btn { color: $coWhite; }
-	}
-
 	@include breakpoint(tablet) {
 		.logo { max-width: 250px; }
-
-		&.header-v2 { background-color: $lineGray3 !important; /** include transition(all 0.5s ease); **/
-			.logo { max-width: 50px; }
-		}
-
-		&.scroll-down {
-			&.bg-red { background-color: $bgRed !important; }
-			&.bg-orange { background-color: $bgOrange !important; }
-			&.bg-forest-blue { background-color: $bgForestBlue !important; }
-			&.bg-water-fall { background-color: $bgWaterfall !important; }
-			&.bg-purple { background-color: $bgPurple !important; }
-			&.bg-dupain { background-color: $bgDupain !important; }
-		}
 	}
 
 	@include breakpoint(tablet2) { box-shadow: 0 1px 5px rgba($coBlack, 0.1); }
@@ -58,32 +41,6 @@ header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background
 			> a { display: block; padding: 5px; background-color: $coBlack; color: $coWhite; text-align: center; letter-spacing: 2px; }
 			.he-bo-icon { display: none; position: absolute; top: 100%; left: 0; width: 100%; }
 			p { display: none; }
-
-			&.active {
-				&:nth-child(1) {
-					> a { background-color: $bgRed; }
-				}
-
-				&:nth-child(2) {
-					> a { background-color: $bgOrange; }
-				}
-
-				&:nth-child(3) {
-					> a { background-color: $bgForestBlue; }
-				}
-
-				&:nth-child(4) {
-					> a { background-color: $bgWaterfall; }
-				}
-
-				&:nth-child(5) {
-					> a { background-color: $bgPurple; }
-				}
-
-				&:nth-child(6) {
-					> a { background-color: $bgDupain; }
-				}
-			}
 		}
 	}
 
