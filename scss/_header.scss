@@ -35,8 +35,8 @@ header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background
 	@include breakpoint(tablet2) { display: none; position: absolute; top: 100%; left: 0; width: 100%; }
 }
 .menu { font-family: $fontB; font-weight: 600;
-	> ul {
-		> li { position: relative; display: block; float: left; width: 16.6666%; border-right: 1px solid $coWhite;
+	> ul { display: table; width: 100%;
+		> li { position: relative; display: table-cell; vertical-align: top; width: 12.5%; border-right: 1px solid $coWhite;
 			&:last-child { border-right: none; }
 			> a { display: block; padding: 5px; background-color: $coBlack; color: $coWhite; text-align: center; letter-spacing: 2px; }
 			.he-bo-icon { display: none; position: absolute; top: 100%; left: 0; width: 100%; }
@@ -45,8 +45,8 @@ header { z-index: 100; position: fixed; top: 0; left: 0; width: 100%; background
 	}
 
 	@include breakpoint(tablet2) {
-		> ul {
-			> li { width: 33.33%; border: none; outline: 1px solid $coWhite;
+		> ul { display: block;
+			> li { display: block; float: left; width: 33.33%; border: none; outline: 1px solid $coWhite;
 				&:nth-child(3n) { }
 				> a { display: none; }
 				.he-bo-icon { display: block; position: relative; top: 0; }

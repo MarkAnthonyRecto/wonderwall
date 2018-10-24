@@ -374,18 +374,20 @@ a.hl-co-ba { display: block; }
 .sticky-content { }
 
 .ho-co-float { z-index: 100;
-	&.bottom-left { position: fixed; bottom: 0; left: 0; background-color: $coWhite;
-		.hl-bo-sns {
-			> li { display: inline-block; vertical-align: middle; max-width: 30px; margin: 0 5px; padding: 0; border-bottom: none; }
+	.bp-title { margin: 0; }
+	&.bottom-left { position: fixed; bottom: 0; left: 0; width: 100%; background-color: $coWhite; box-shadow: 0 -1px 10px rgba($coBlack, 0.1);
+		.hl-bo-sns { display: table; width: 100%;
+			> li { display: table-cell; vertical-align: middle; width: 25%; padding: 5px; border-bottom: none; text-align: center; border-right: 1px solid $defaultColor;
+				&:last-child { border-right: none; }
+				img { max-width: 30px; }
+			}
 		}
 	}
 }
 
-.hc-fl-list { display: table;
-	> div { display: table-cell; vertical-align: middle; padding: 7px 10px; border-right: 1px solid $coBlack;
+.hc-fl-list { display: table; width: 100%;
+	> div { display: table-cell; vertical-align: middle; padding: 0 10px; border-right: 1px solid $coBlack;
 		&:last-child { border-right: none; }
-		&.capt {
-			.bp-title { margin: 0; }
-		}
+		&.capt { width: 1%; }
 	}
 }

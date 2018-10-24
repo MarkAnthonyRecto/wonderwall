@@ -85,21 +85,40 @@
 	// &:before { content: ''; display: block; position: absolute; top: 0; left: 50%; height: 100%; border-left: 1px solid red; }
 }
 .ww-preloader { position: absolute; top: 50%; left: 47.8%; width: 430px; @extend .bp-centralize3; /**outline: 1px solid red;**/
-	> span { display: block; float: left; height: 36px; margin: 0 3px; background-image: url('../images/logo_preloader.png'); background-repeat: no-repeat;
-		&:nth-child(1) { width: 40px; background-position: -147px -25px; @include animation(ww1 2s ease infinite); }
-		&:nth-child(2) { width: 29px; background-position: -193px -25px; @include animation(ww2 2s ease infinite); }
-		&:nth-child(3) { width: 29px; background-position: -231px -25px; @include animation(ww3 2s ease infinite); }
-		&:nth-child(4) { width: 28px; background-position: -269px -25px; @include animation(ww4 2s ease infinite); }
-		&:nth-child(5) { width: 23px; background-position: -305px -25px; @include animation(ww5 2s ease infinite); }
-		&:nth-child(6) { width: 28px; background-position: -337px -25px; @include animation(ww6 2s ease infinite); }
-		&:nth-child(7) { width: 40px; background-position: -371px -25px; @include animation(ww7 2s ease infinite); }
-		&:nth-child(8) { width: 30px; background-position: -415px -25px; @include animation(ww8 2s ease infinite); }
-		&:nth-child(9) { width: 21px; background-position: -452px -25px; @include animation(ww9 2s ease infinite); }
-		&:nth-child(10) { width: 21px; background-position: -452px -25px; @include animation(ww10 2s ease infinite); }
-		&:nth-child(11) { width: 10px; background-position: -505px -25px; @include animation(ww11 2s ease infinite); }
-		&:nth-child(12) { width: 26px; background-position: -516px -25px; @include animation(ww11 2s ease infinite); }
-		&:nth-child(13) { width: 24px; background-position: -543px -25px; @include animation(ww11 2s ease infinite); }
-		&:nth-child(14) { z-index: 2; position: absolute; top: 50%; left: 50%; width: 131px; height: 86px; background-position: 0 0; @extend .bp-centralize3; @include animation(ww12 2s ease infinite); }
+	> span { display: block; float: left; height: 36px; margin: 0 3px; background-image: url('../images/logo_preloader.png'); background-repeat: no-repeat; }
+
+	&.v1 {
+		> span { 
+			&:nth-child(1) { width: 40px; background-position: -147px -25px; @include animation(ww1 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(2) { width: 29px; background-position: -193px -25px; @include animation(ww2 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(3) { width: 29px; background-position: -231px -25px; @include animation(ww3 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(4) { width: 28px; background-position: -269px -25px; @include animation(ww4 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(5) { width: 23px; background-position: -305px -25px; @include animation(ww5 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(6) { width: 28px; background-position: -337px -25px; @include animation(ww6 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(7) { width: 40px; background-position: -371px -25px; @include animation(ww7 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(8) { width: 30px; background-position: -415px -25px; @include animation(ww8 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(9) { width: 21px; background-position: -452px -25px; @include animation(ww9 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(10) { width: 21px; background-position: -452px -25px; @include animation(ww10 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(11) { width: 10px; background-position: -505px -25px; @include animation(ww11 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(12) { width: 26px; background-position: -516px -25px; @include animation(ww12 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+			&:nth-child(13) { width: 24px; background-position: -543px -25px; @include animation(ww13 2s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite); }
+		}
+	}
+
+	&.v2 { opacity: 1;
+		> span { opacity: 0; position: absolute; top: 50%; left: 50%; @extend .bp-centralize3;
+			&:nth-child(1) { width: 131px; height: 86px; background-position: 0 0; }
+			&:nth-child(2) { z-index: 2; margin-top: 50%; width: 35px; height: 35px; background: none;
+				&:before { content: ''; display: block; width: 100%; height: 100%; border: 2px solid transparent; border-radius: 20px; border-top-color: $coBlue1; border-left-color: $coBlue1; @include animation(spinner 400ms linear infinite); }
+			}
+		}
+	}
+
+	&.animation2 {
+		&.v1 { @include animation(v1ww1 0.5s 1s ease forwards); }
+		&.v2 { opacity: 1;
+			> span { @include animation(v2ww1 1s 0.6s ease forwards); }
+		}
 	}
 
 	@include breakpoint(tablet) { left: 50%; @include transform(translate3d(-50%,-50%,0) scale(0.7));
@@ -108,105 +127,77 @@
 		}
 	}
 }
+
 @include keyframes(ww1) {
-	0%, 20%, 100% { opacity: 0; transform: translate3d(-200px,0,0) scale(0.9); }
-	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-200px,0,0); }
 }
 @include keyframes(ww2) {
-	0%, 18%, 100% { opacity: 0; transform: translate3d(-180px,0,0) scale(0.9); }
-	40%, 60%, 62% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-170px,0,0); }
 }
 @include keyframes(ww3) {
-	0%, 16%, 100% { opacity: 0; transform: translate3d(-160px,0,0) scale(0.9); }
-	40%, 60%, 64% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-140px,0,0); }
 }
 @include keyframes(ww4) {
-	0%, 14%, 100% { opacity: 0; transform: translate3d(-140px,0,0) scale(0.9); }
-	40%, 60%, 66% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-110px,0,0); }
 }
 @include keyframes(ww5) {
-	0%, 12%, 100% { opacity: 0; transform: translate3d(-120px,0,0) scale(0.9); }
-	40%, 60%, 68% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-80px,0,0); }	
 }
 @include keyframes(ww6) {
-	0%, 10%, 100% { opacity: 0; transform: translate3d(-100px,0,0) scale(0.9); }
-	40%, 60%, 70% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(-50px,0,0); }
 }
+
 @include keyframes(ww7) {
-	0%, 14%, 100% { opacity: 0; transform: translate3d(100px,0,0) scale(0.9); }
-	40%, 60%, 66% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(0,0,0); }
 }
 @include keyframes(ww8) {
-	0%, 16%, 100% { opacity: 0; transform: translate3d(120px,0,0) scale(0.9); }
-	40%, 60%, 64% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(50px,0,0); }
 }
 @include keyframes(ww9) {
-	0%, 18%, 100% { opacity: 0; transform: translate3d(140px,0,0) scale(0.9); }
-	40%, 60%, 62% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(80px,0,0); }
 }
 @include keyframes(ww10) {
-	0%, 20%, 100% { opacity: 0; transform: translate3d(160px,0,0) scale(0.9); }
-	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(110px,0,0); }
 }
 @include keyframes(ww11) {
-	0%, 20%, 100% { opacity: 0; transform: translate3d(160px,0,0) scale(0.9); }
-	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(140px,0,0); }
 }
 @include keyframes(ww12) {
-	0%, 10%, 100% { opacity: 1; transform: translate3d(-50%,-50%,0) scale(1); }
-	45%, 66% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.8); }
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(170px,0,0); }
+}
+@include keyframes(ww13) {
+	0%, 20%, 100% { opacity: 1; transform: translate3d(0,0,0); }
+	40%, 70% { opacity: 0; transform: translate3d(200px,0,0); }
+}
+
+@include keyframes(v1ww1) {
+	0% { opacity: 1; }
+	100% { opacity: 0; }
+}
+
+@include keyframes(v2ww1) {
+	0% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.8); }
+	100% { opacity: 1; transform: translate3d(-50%,-50%,0) scale(1); }
+}
+
+@include keyframes(spinner) {
+  0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
 }
 
 
-
-// @include keyframes(ww1) {
-// 	0%, 20%, 100% { opacity: 0; transform: translate3d(-200px,0,0) scale(0.9); }
-// 	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww2) {
-// 	0%, 18%, 100% { opacity: 0; transform: translate3d(-180px,0,0) scale(0.9); }
-// 	40%, 60%, 62% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww3) {
-// 	0%, 16%, 100% { opacity: 0; transform: translate3d(-160px,0,0) scale(0.9); }
-// 	40%, 60%, 64% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww4) {
-// 	0%, 14%, 100% { opacity: 0; transform: translate3d(-140px,0,0) scale(0.9); }
-// 	40%, 60%, 66% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww5) {
-// 	0%, 12%, 100% { opacity: 0; transform: translate3d(-120px,0,0) scale(0.9); }
-// 	40%, 60%, 68% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww6) {
-// 	0%, 10%, 100% { opacity: 0; transform: translate3d(-100px,0,0) scale(0.9); }
-// 	40%, 60%, 70% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww7) {
-// 	0%, 14%, 100% { opacity: 0; transform: translate3d(100px,0,0) scale(0.9); }
-// 	40%, 60%, 66% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww8) {
-// 	0%, 16%, 100% { opacity: 0; transform: translate3d(120px,0,0) scale(0.9); }
-// 	40%, 60%, 64% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww9) {
-// 	0%, 18%, 100% { opacity: 0; transform: translate3d(140px,0,0) scale(0.9); }
-// 	40%, 60%, 62% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww10) {
-// 	0%, 20%, 100% { opacity: 0; transform: translate3d(160px,0,0) scale(0.9); }
-// 	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww11) {
-// 	0%, 20%, 100% { opacity: 0; transform: translate3d(160px,0,0) scale(0.9); }
-// 	40%, 60% { opacity: 1; transform: translate3d(0,0,0); }
-// }
-// @include keyframes(ww12) {
-// 	0%, 10%, 100% { opacity: 1; transform: translate3d(-50%,-50%,0) scale(1); }
-// 	45%, 66% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.8); }
-// }
 // you can include here the rest of your class name eg. home page
 .anim-content, .animated, .animate, .tween { opacity: 0; }
 .animated.visible { opacity: 1; }
@@ -263,7 +254,7 @@ html.bp-touch {
 	&:hover, &:focus { color: inherit; opacity: 0.8; }
 }
 
-.btn-absolute { position: absolute; width: 100%;
+.btn-absolute { position: absolute; width: 100%; border-top: 1px solid $coWhite;
 	&.btn-bottom-left { bottom: 0; left: 0; }
 }
 .btn-bottom { padding-bottom: 35px; }

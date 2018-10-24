@@ -2,7 +2,9 @@
 var bp = {
 	width: 0,
 	height: 0,
-	enableloader: false,
+	enableloader: true,
+	loaderready: 0,
+	afterloader: 0,
 	init: function() {
 		if(bp.enableloader) {
 			bp.loader('init');
@@ -53,22 +55,42 @@ var bp = {
 			count: 0,
 			init: function() {
 				_loader.content = document.querySelector('.bp-preloader');
+				_loader.timer();
 			},
 			timer: function() {
 				_loader.interval = setInterval(_loader.update, 1000);
 			},
 			update: function() {
 				_loader.count++;
-				if(_loader.count == 1) {
+				if(_loader.count == 2) {
+					// move to next step immediately
+					_loader.next();
+
+					// emphasize the preloader
+					// if(bp.loaderready == 1) {
+					// 	_loader.ready();
+					// } else {
+					// 	_loader.count = 0;
+					// }
+				}
+			},
+			next: function() {
+				clearInterval(_loader.interval);
+				$('.ww-preloader', _loader.content).addClass('animation2');
+				_loader.interval = setInterval(_loader.ready, 1500);
+			},
+			ready: function() {
+				if(bp.loaderready == 1) {
 					clearInterval(_loader.interval);
 					$('.bp-preloader').fadeOut();
-					if(afterLoad) {
-						afterLoad();
+					
+					if(bp.afterloader) {
+						bp.afterloader();
 					}
 				}
 			},
-			close: function() {
-				_loader.timer();
+			close: function(afterLoad) {
+				bp.loaderready = 1;
 			},
 			disable: function() {
 				$('.bp-preloader').remove();
@@ -78,6 +100,7 @@ var bp = {
 		if(state == 'init') {
 			_loader.init();
 		} else if(state == 'close') {
+			bp.afterloader = afterLoad;
 			_loader.close();
 		} else if(state == 'disable') {
 			_loader.disable();
@@ -399,7 +422,7 @@ var bp = {
 				$('.video-top-gallery .owl-carousel').owlCarousel({
 					nav: true,
 					dots: false,
-					smartSpeed: 700,
+					smartSpeed: 500,
 					center: true,
 					loop: true,
 					responsive: {
@@ -419,19 +442,22 @@ var bp = {
 				$('.video-carousel .owl-carousel').owlCarousel({
 					nav: true,
 					dots: false,
-					smartSpeed: 700,
+					smartSpeed: 500,
 					loop: true,
 					responsive: {
 						0: {
 							items: 2,
+							slideBy: 2,
 							margin: 10
 						},
 						640: {
 							items: 3,
+							slideBy: 3,
 							margin: 10
 						},
 						810: {
 							items: 4,
+							slideBy: 4,
 							margin: 18
 						}
 					}
