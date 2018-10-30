@@ -115,9 +115,9 @@
 	}
 
 	&.animation2 {
-		&.v1 { @include animation(v1ww1 0.5s 1s ease forwards); }
+		&.v1 { @include animation(v1ww1 0.5s 0s ease forwards); }
 		&.v2 { opacity: 1;
-			> span { @include animation(v2ww1 1s 0.6s ease forwards); }
+			> span { @include animation(v2ww1 1s 0s ease forwards); }
 		}
 	}
 
@@ -188,7 +188,7 @@
 }
 
 @include keyframes(v2ww1) {
-	0% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.8); }
+	0% { opacity: 0; transform: translate3d(-50%,-50%,0) scale(0.5); }
 	100% { opacity: 1; transform: translate3d(-50%,-50%,0) scale(1); }
 }
 
@@ -284,7 +284,7 @@ html.bp-touch {
 	}
 }
 
-.nice-select { z-index: 3; position: relative; float: none; width: 100%; height: auto; padding: 5px 15px; background-color: $coBlue4; color: $coBlack; border: none; text-align: center !important; text-transform: uppercase; font-family: $fontC; font-size: inherit; line-height: 1.2; box-shadow: 2px 2px 5px rgba($coBlack, 0.2); @extend .bp-nocurve;
+.nice-select { position: relative; float: none; width: 100%; height: auto; padding: 5px 15px; background-color: $coBlue4; color: $coBlack; border: none; text-align: center !important; text-transform: uppercase; font-family: $fontC; font-size: inherit; line-height: 1.2; box-shadow: 2px 2px 5px rgba($coBlack, 0.2); @extend .bp-nocurve;
 	&:after { width: auto; height: auto; margin: 0; border-bottom: none; border-top: 13px solid $coWhite; border-left: 7px solid transparent; border-right: 7px solid transparent; @include transform(translate3d(0,-50%,0) !important); }
 	.list { width: 100%; margin-top: 10px; background-color: $lineGray3; text-align: center; @extend .bp-nocurve; }
 	.option { text-align: inherit; padding: 2px 15px;
@@ -292,4 +292,32 @@ html.bp-touch {
 	}
 
 	select { position: relative; display: block; width: calc(100% + 30px); margin: -5px -15px; padding: 5px 15px; text-align: center; @include appearance(none); background-color: transparent; border: none; font-family: inherit; }
+}
+
+[dropdown-group] {
+	[dropdown-set] { }
+	[dd-title] { cursor: pointer;
+		&.hb-btn { @extend .ease; }
+	}
+	[dd-content] { display: none; }
+}
+
+.ho-co-dd {
+	[dropdown-set] { @extend .mb2;
+		&:last-child { margin-bottom: 0; }
+
+		&.dd-active {
+			[dd-title] {
+				.op { display: inline; }
+				.cl { display: none; }
+
+				[class*="icon-"] { @include transform(rotate(45deg)); }
+			}
+		}
+	}
+	[dd-title] { padding: 10px 0; border-top: 1px solid $defaultColor; border-bottom: 1px solid $defaultColor; @extend .mb1;
+		.op { display: none; }
+
+		[class*="icon-"] { display: block; @include transform(rotate(0deg)); @extend .ease2; }
+	}
 }
